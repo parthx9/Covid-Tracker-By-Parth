@@ -3,6 +3,10 @@ import { render } from "@testing-library/react";
 import { Cards, Chart, CountryPicker } from './components'
 import styles from './App.module.css' ;
 import { fetchData } from  './api';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import image from '/home/parth/Desktop/Web/Covid Tracker By Parth/covidtracker/src/images/image.png'
+import { Footer } from "./components/Footer/Footer";
+
 
 
 class App extends Component {
@@ -30,11 +34,20 @@ class App extends Component {
     }
     render (){
         return (
-            <div className= {styles.container}>
-                <h1>Covid Tracker</h1>
-                <Cards data = {this.state.data} />
-                <CountryPicker handleCountryChange ={this.handleCountryChange} />
-                <Chart data = {this.state.data} country = {this.state.country} />
+            <div className= 'container'>
+                <div className='row m-5'>
+                    <div className='col-12 col-md-8 offset-md-2'>
+                        <img className={styles.image} src={image} alt="COVID-19" />  
+                    </div>
+                </div>
+                <Cards data={this.state.data} />
+                <div className= 'row m-5'>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+                </div>
+                <div className= 'row m-5'>
+                <Chart data={this.state.data} country={this.state.country} /> 
+                </div>
+                <Footer />
             </div>
         )
     }

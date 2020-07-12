@@ -1,8 +1,10 @@
 import React from 'react' ;
 import { Card, Grid, Typography, CardContent } from '@material-ui/core';
-import styles from './Cards.module.css'
+import './Cards.css'
 import CountUp from 'react-countup' ;
 import cx from 'classnames';
+import '/home/parth/Desktop/Web/Covid Tracker By Parth/covidtracker/node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 const Cards = ({ data : { confirmed, recovered, deaths, lastUpdate }} ) =>{
 
@@ -11,72 +13,55 @@ const Cards = ({ data : { confirmed, recovered, deaths, lastUpdate }} ) =>{
     }
 
     return (
-        <div className = {styles.container}>
-            <Grid container spacing={3} justify ='center'>
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.infected)}>
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Infected
-                        </Typography>
-                        <Typography variant='h5'>
-                            <CountUp
+        <div className='row'>
+        <div className='col-12 col-md-4'>
+            <div className="card text-center" >
+                <div className="card-body infected">
+                    <h5 className="card-title">Infected</h5>
+                    <p className="card-text">
+                        <CountUp
+                            className = 'font-weight-bold blue'
                             start = {0}
                             end = {confirmed.value}
                             separator = ','
                             duration = {2.5}
-                            />
-                        </Typography>
-                        <Typography color='textSecondary'>
-                            {new Date(lastUpdate).toDateString()}
-                        </Typography>
-                        <Typography variant ='body2'>
-                            Active Cases
-                        </Typography>
-                    </CardContent>
-                </Grid>
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.recovered)}>
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Recovered
-                        </Typography>
-                        <Typography variant='h5'>
+                        /></p>
+                    <p className='card-text'>{new Date(lastUpdate).toDateString()}</p>
+                </div>
+            </div>
+        </div>
+        <div className='col-12 col-md-4 '>
+            <div className="card text-center " >
+                <div className="card-body recovered">
+                    <h5 className="card-title">Recovered</h5>
+                    <p className="card-text">
                         <CountUp
+                            className = 'font-weight-bold green'
                             start = {0}
                             end = {recovered.value}
                             separator = ','
                             duration = {2.5}
-                            />
-                        </Typography>
-                        <Typography color='textSecondary'>
-                            {new Date(lastUpdate).toDateString()}
-                        </Typography>
-                        <Typography variant ='body2'>
-                            Recovered Cases
-                        </Typography>
-                    </CardContent>
-                </Grid>
-                <Grid item component={Card} xs={12} md={3} className={cx(styles.card, styles.deaths)}>
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Deaths
-                        </Typography>
-                        <Typography variant='h5'>
+                        /></p>
+                    <p className='card-text'>{new Date(lastUpdate).toDateString()}</p>
+                </div>
+            </div>
+        </div>
+        <div className='col-12 col-md-4'>
+            <div className="card text-center" >
+                <div className="card-body deaths">
+                    <h5 className="card-title">Deaths</h5>
+                    <p className="card-text">
                         <CountUp
+                            className = 'font-weight-bold red'
                             start = {0}
                             end = {deaths.value}
                             separator = ','
                             duration = {2.5}
-                            />
-                        </Typography>
-                        <Typography color='textSecondary'>
-                            {new Date(lastUpdate).toDateString()}   
-                        </Typography>
-                        <Typography variant ='body2'>
-                            Deaths
-                        </Typography>
-                    </CardContent>
-                </Grid>
-            </Grid>
+                        /></p>
+                    <p className='card-text'>{new Date(lastUpdate).toDateString()}</p>
+                </div>
+            </div>
+        </div>
         </div>
     )
 }

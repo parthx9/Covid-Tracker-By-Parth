@@ -1,10 +1,21 @@
 .countainer {
     margin : 50px 0;
-    padding: 50px 0;
 }
 
 .card {
     margin : 0 2% !important ;
+}
+
+.green {
+    color: rgb(0, 255, 0, 0.5) ;
+}
+
+.red {
+    color: rgb(255, 0, 0, 0.5) ;
+}
+
+.blue {
+    color: rgb(0, 0, 255, 0.5) ;
 }
 
 .infected {
@@ -17,4 +28,8 @@
 
 .deaths {
     border-bottom: 10px solid rgb(255, 0, 0, 0.5);
+}
+
+.font-set {
+    font-size: larger;
 }
